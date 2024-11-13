@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacer Pregunta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>StudentOverflow</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Inicio</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Hacer una nueva pregunta</h2>
+        <form method="POST">
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" required><br>
+            <label for="content">Contenido:</label>
+            <textarea id="content" name="content" required></textarea><br>
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+</body>
+</html>

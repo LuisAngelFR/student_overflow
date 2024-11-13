@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentOverflow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>StudentOverflow</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Inicio</a>
+            <a href="{{ url_for('ask') }}">Hacer Pregunta</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Preguntas</h2>
+        <ul>
+            {% for question in questions %}
+                <li>
+                    <a href="{{ url_for('question', id=question.id) }}">
+                        <strong>{{ question.title }}</strong>
+                    </a>
+                    <p>{{ question.content[:100] }}...</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

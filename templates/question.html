@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ question.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>StudentOverflow</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Inicio</a>
+        </nav>
+    </header>
+    <main>
+        <div class="question-detail">
+            <h2>{{ question.title }}</h2>
+            <p>{{ question.content }}</p>
+        </div>
+
+        <div class="responses">
+            <h3>Respuestas:</h3>
+            
+            {% for answer in answers %}
+                <div class="response">
+                    <p>{{ answer.content }}</p>
+                    <div class="response-meta">
+                        <span class="author">Autor: Usuario {{ answer.id }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        
+            <form method="POST" class="response-form">
+                <label for="content">Tu respuesta:</label>
+                <textarea id="content" name="content" rows="4" required></textarea>
+                <button type="submit">Enviar respuesta</button>
+            </form>
+        </div>        
+    </main>
+</body>
+</html>
